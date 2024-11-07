@@ -4,14 +4,14 @@ services:
   image: killermrsingh/lbg-grad-compose-api
   build: ./calculator-api
   ports:
-   - target: 8080
+   -target: 8080
    published: 8081
 front-a:
  image: killermrsingh/lbg-grad-compose-front-a 
  build:
   context: ./frontend-1
 ports:
- - target: 80
+ -target: 80
  published: 80
 front-b:
  image: killermrsingh/lbg-grad-compose-front-b
