@@ -18,5 +18,5 @@ front-b:
  build:
   context: ./frontend-2
 ports:
-  - target: 80
+  -target: 80
   published: 81
