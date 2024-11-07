@@ -1,19 +1,32 @@
-version: "3.8" 
+version: "3.8"
+
 services:
- calc-api:
-  image: killermrsingh/lbg-grad-compose-api
-  build: ./calculator-api
-  ports:
-   -target: 8080
-   published: 8081
-front-a:
- image: killermrsingh/lbg-grad-compose-front-a 
- build:
-  context: ./frontend-1
-ports:
- -target: 80
- published: 80
-front-b:
- image: killermrsingh/lbg-grad-compose-front-b
- build:
-  context: ./frontend-2
+  calc-api:
+    image: killermrsingh/lbg-grad-compose-api
+    build:
+      context: ./calculator-api
+    ports:
+      - target: 8080
+        published: 8081
+        protocol: tcp
+        mode: host
+
+  front-a:
+    image: killermrsingh/lbg-grad-compose-front-a
+    build:
+      context: ./frontend-1
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: host
+
+  front-b:
+    image: killermrsingh/lbg-grad-compose-front-b
+    build:
+      context: ./frontend-2
+    ports:
+      - target: 80
+        published: 81  # Assuming this should be a different port from `front-a` to avoid conflict
+        protocol: tcp
+        mode: host
