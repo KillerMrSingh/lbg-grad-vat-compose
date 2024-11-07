@@ -17,6 +17,3 @@ front-b:
  image: killermrsingh/lbg-grad-compose-front-b
  build:
   context: ./frontend-2
-ports:
-  -target: 80
-  published: 81
